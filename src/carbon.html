@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/icon.png" />
+
+  <meta name="description" content="ConnectNHelp™ is a platform made to connect potential donors like you, who want to give back to the community, with the right resources to facilitate that.">
+  <meta name="keywords" content="NGO,ngo,Evenets.events,connectnhelp,ConnectNHelp,sustainability,">
+  <meta name="author" content="Mayur">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Calculator - ConnectNHelp</title>
+
+  <link href="css/home.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
+    <!-- BootStrap 5 additional CSS Files -->
+    <link href="bootstrap5/aos/aos.css" rel="stylesheet">
+    <link href="bootstrap5/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/bootstrap5-mod.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/carbon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+
+
+  <div id="importNav">
+  </div>
+  <section class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>Calculate</li>
+      </ol>
+      <h2>Travel Carbon Calculator</h2>
+
+    </div>
+  </section>
+<br><br><br>
+        
+ <section id="blog" class="blog d-flex align-items-center my-4">
+    <div class="container" data-aos="fade-up">
+        <header class="section-header">
+            <p>Travel Carbon Calculator </p>
+          </header>
+          <div class="entry-content clear" itemprop="text">
+
+		
+		
+            <!-- Autocomplete -->
+           
+            
+            
+            <div class="hidden" id="language" data-language="en"></div>
+            
+             
+            
+            
+            <div class="search-container">
+            
+            
+              <form class="form-inline" method="GET">
+                  <!-- Row to select mode of transportation -->
+                  <div class="transport-mode-row">
+                      <div class="transport-mode-container">
+                          <div class="tm-select-col tm-0">
+                              <img src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1609787429/0.png?w=1200&amp;ssl=1" class="img-format" width="23" height="22" style="opacity: 0.5;">
+                              <p class="tm-name" style="font-weight: normal; opacity: 0.75;">Flight</p>
+                              <input id="checkbox-flight" class="tm-checkbox" type="checkbox" checked="checked">
+                              <label for="filter-flight"></label>
+                          </div>
+                          <div class="tm-select-col tm-1">
+                              <img src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1609787429/1.png?w=1200&amp;ssl=1" class="img-format" width="17" height="22" style="opacity: 0.5;">
+                              <p class="tm-name" style="font-weight: normal; opacity: 0.75;">Train</p>
+                              <input id="checkbox-train" class="tm-checkbox" type="checkbox">
+                              <label for="filter-train"></label>
+                          </div>
+                          <div class="tm-select-col tm-2">
+                              <img src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1609787429/2.png?w=1200&amp;ssl=1" class="img-format" width="18" height="22" style="opacity: 0.5;">
+                              <p class="tm-name" style="font-weight: normal; opacity: 0.75;">Bus</p>
+                              <input id="checkbox-bus" class="tm-checkbox" type="checkbox">
+                              <label for="filter-bus"></label>
+                          </div>
+                          <div class="tm-select-col tm-4">
+                              <img src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1609787429/4.png?w=1200&amp;ssl=1" class="img-format" width="20" height="20" style="opacity: 1;">
+                              <p class="tm-name" style="font-weight: bold; opacity: 1;">Car</p>
+                              <input id="checkbox-car" class="tm-checkbox" type="checkbox">
+                              <label for="filter-car"></label>
+                          </div>
+                          <div class="tm-select-col tm-5">
+                              <img src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1609787429/5.png?w=1200&amp;ssl=1" class="img-format" width="21" height="22" style="opacity: 0.5;">
+                              <p class="tm-name" style="font-weight: normal; opacity: 0.75;">Ferry</p>
+                              <input id="checkbox-ferry" class="tm-checkbox" type="checkbox">
+                              <label for="filter-ferry"></label>
+                          </div>
+                      </div>
+                  </div>
+            
+                 <div class="form-field-container slider-container hidden">
+                     <div class="slidecontainer">
+                      <input type="range" min="0" max="1" value="0" class="slider" id="flightInputSlider">
+                    </div>
+                    <div style="position: absolute; width: 100%; margin-top: -25px;">
+                        <div class="slider-option slider-option-left">Duration</div>
+                        <div class="slider-option slider-option-right slider-option-not-selected">Airports</div>
+                    </div>
+                 </div>
+            
+                <div class="cities-form-field hidden">
+                  <div class="city-form-field" data-toggle="tooltip-focus-input" style="border-bottom: 1px solid rgb(150, 150, 150);">
+                    <input type="search" class="autocomplete-airport ui-autocomplete-input" id="orig-airport" name="orig-airport" placeholder="From (airport code)" autocomplete="off">
+                    <span class="form-icon">
+                        <!-- <img class="size-icon" src='https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1609787589/position.png?w=1200&#038;ssl=1' alt="position icon" data-recalc-dims="1"/> -->
+                    </span>
+                  </div>
+                  <div class="line-between-cities">
+                  </div>
+            
+                  <div class="city-form-field" data-toggle="tooltip-focus-input">
+                    <input type="search" class="autocomplete-airport ui-autocomplete-input" id="dest-airport" name="dest-airport" placeholder="To (airport code)" autocomplete="off">
+                    <span class="form-icon">
+                        <!-- <img class="size-icon" src='https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1609787589/location.png?w=1200&#038;ssl=1' alt="location icon" data-recalc-dims="1"/> -->
+                    </span>
+                  </div>
+                </div>
+            
+                <div class="custom-select form-field-container duration-field-container hidden">
+                    <select class="form-field duration-field" id="duration-dropdown" name="duration-dropdown">
+                        <option value="0h30m">30 minutes</option>
+                        <option value="0h45m">45 minutes</option>
+                        <option value="1h">1 hour</option>
+                        <option value="1h15m">1h 15m</option>
+                        <option value="1h30m">1h 30m</option>
+                        <option value="2h">2 hours</option>
+                        <option value="2h30m">2h 30m</option>
+                        <option value="3h" selected="selected">3 hours</option>
+                        <option value="3h30m">3h 30m</option>
+                        <option value="4h">4 hours</option>
+                        <option value="5h">5 hours</option>
+                        <option value="6h">6 hours</option>
+                        <option value="7h">7 hours</option>
+                        <option value="8h">8 hours</option>
+                        <option value="9h">9 hours</option>
+                        <option value="10h">10 hours</option>
+                        <option value="11h">11 hours</option>
+                        <option value="12h">12 hours</option>
+                        <option value="14h">14 hours</option>
+                        <option value="16h">16 hours</option>
+                        <option value="18h">18 hours</option>
+                        <option value="20h">20 hours</option>
+                        <option value="22h">22 hours</option>
+                        <option value="24h">24 hours</option>
+                      </select>
+                </div>
+            
+                <div class="custom-select form-field-container distance-field-container">
+                    <select class="form-field distance-field" id="distance-dropdown" name="distance-dropdown">
+                        <option value="50-km">50 km</option>
+                        <option value="100-km">100 km</option>
+                        <option value="150-km">150 km</option>
+                        <option value="200-km">200 km</option>
+                        <option value="250-km">250 km</option>
+                        <option value="300-km">300 km</option>
+                        <option value="400-km" selected="selected">400 km</option>
+                        <option value="500-km">500 km</option>
+                        <option value="600-km">600 km</option>
+                        <option value="700-km">700 km</option>
+                        <option value="800-km">800 km</option>
+                        <option value="900-km">900 km</option>
+                        <option value="1000-km">1 000 km</option>
+                        <option value="1250-km">1 250 km</option>
+                        <option value="1500-km">1 500 km</option>
+                        <option value="2000-km">2 000 km</option>
+                        <option value="3000-km">3 000 km</option>
+                        <option value="5000-km">5 000 km</option>
+                        <option value="10000-km">10 000 km</option>
+                        <option value="20000-km">20 000 km</option>
+                        <option value="30000-km">30 000 km</option>
+                        <option value="50000-km">50 000 km</option>
+                        <option value="100000-km">100 000 km</option>
+                        <!-- <option value="200000-km">200 000 km</option> -->
+                      </select>
+                </div>
+            
+                <div class="options-row">
+                    <div class="options-container">
+                        <div class="option-field-container trip-type-container">
+                            <select class="form-field form-field-option trip-type" id="trip-type-dropdown" name="trip-type-dropdown">
+                                <option value="one-way">One Way</option>
+                                <option value="round-trip" selected="selected">Round Trip</option>
+                              </select>
+                        </div>
+            
+                        <div class="option-field-container pax-qty-container">
+                            <select class="form-field form-field-option" id="pax-qty-dropdown" name="pax-qty-dropdown">
+                                <option value="1-pax" selected="selected">1 passenger</option>
+                                <option value="2-pax">2 passengers</option>
+                                <option value="3-pax">3 passengers</option>
+                                <option value="4-pax">4 passengers</option>
+                                <option value="5-pax">5 passengers</option>
+                                <option value="6-pax">6 passengers</option>
+                                <option value="7-pax">7 passengers</option>
+                              </select>
+                        </div>
+            
+                        <div class="option-field-container pax-class-container hidden">
+                            <select class="form-field form-field-option" id="pax-class-dropdown" name="pax-class-dropdown">
+                                <option value="economy-class" selected="selected">Economy class</option>
+                                <option value="business-class">Business class</option>
+                              </select>
+                        </div>
+            
+                        <div class="option-field-container train-energy-container hidden">
+                            <select class="form-field form-field-option" id="train-energy-dropdown" name="train-energy-dropdown">
+                                <option value="electric" selected="selected">Electric</option>
+                                <option value="diesel">Diesel</option>
+                              </select>
+                        </div>
+            
+                        <div class="option-field-container train-country-container hidden">
+                            <select class="form-field form-field-option" id="train-country-dropdown" name="train-country-dropdown"> 
+                                <option value="average" selected="selected">Average</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BR">Brazil</option>
+                                <option value="CA">Canada</option>
+                                <!-- <option value="CL">Chile</option> -->
+                                <option value="CN">China</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="DK">Denmark</option>
+                                <option value="EE">Estonia</option>
+                                <option value="FI">Finland</option>
+                                <option value="FR">France</option>
+                                <option value="DE">Germany</option>
+                                <option value="GR">Greece</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IT">Italy</option>
+                                <option value="JP">Japan</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxemburg</option>
+                                <option value="MX">Mexico</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NO">Norway</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="RU">Russia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="KR">South Korea</option>
+                                <option value="ES">Spain</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="US">United States</option>
+                              </select>
+                        </div>
+            
+                        <div class="option-field-container vehicle-ferry-container hidden">
+                            <select class="form-field form-field-option" id="vehicle-ferry-dropdown" name="vehicle-ferry-dropdown">
+                                <option value="without-vehicle" selected="selected">Without vehicle</option>
+                                <option value="with-vehicle">With vehicle</option>
+                              </select>
+                        </div>
+            
+                        <div class="option-field-container car-details-container">
+                            <div class="" id="car-details-btn">
+                                <div style="display: inline-block;">
+                                    Car details
+                                </div>
+                                <span class="journey-type-arrow arrow-container"><span class="arrow-down no-display">▼</span><span class="arrow-up">▲</span></span>
+                            </div>
+                            <div class="speech-bubble" style="position: relative;" id="options-car-details-container">
+                                <div class="option-field-container fuel-type-container car-detail-container">
+                                    <label>Fuel type:</label>
+                                    <select class="form-field form-field-option" id="fuel-type-dropdown" name="fuel-type-dropdown">
+                                        <option value="diesel" selected="selected">Diesel</option>
+                                        <option value="petrol">Petrol</option>
+                                        <option value="electric">Electric</option>
+                                      </select>
+                                </div>
+            
+                                <div class="option-field-container fuel-consumption-container car-detail-container">
+                                    <label>Fuel consumption:</label>
+                                    <select class="form-field form-field-option" id="fuel-consumption-dropdown" name="fuel-consumption-dropdown">
+                                        <option value="0">0 l/100km</option>
+                                        <option value="1">1 l/100km</option>
+                                        <option value="2">2 l/100km</option>
+                                        <option value="3">3 l/100km</option>
+                                        <option value="4">4 l/100km</option>
+                                        <option value="5">5 l/100km</option>
+                                        <option value="6">6 l/100km</option>
+                                        <option value="7">7 l/100km</option>
+                                        <option value="8" selected="selected">8 l/100km</option>
+                                        <option value="9">9 l/100km</option>
+                                        <option value="10">10 l/100km</option>
+                                        <option value="11">11 l/100km</option>
+                                        <option value="12">12 l/100km</option>
+                                        <option value="13">13 l/100km</option>
+                                        <option value="14">14 l/100km</option>
+                                        <option value="15">15 l/100km</option>
+                                        <option value="20">20 l/100km</option>
+                                      </select>
+                                </div>
+            
+                                <div class="option-field-container energy-consumption-container car-detail-container hidden">
+                                    <label>Energy consumption:</label>
+                                    <select class="form-field form-field-option" id="energy-consumption-dropdown" name="energy-consumption-dropdown">
+                                        <option value="15">15 kWh/100km</option>
+                                        <option value="16">16 kWh/100km</option>
+                                        <option value="17">17 kWh/100km</option>
+                                        <option value="18">18 kWh/100km</option>
+                                        <option value="19" selected="selected">19 kWh/100km</option>
+                                        <option value="20">20 kWh/100km</option>
+                                        <option value="21">21 kWh/100km</option>
+                                        <option value="22">22 kWh/100km</option>
+                                      </select>
+                                </div>
+            
+                                <div class="option-field-container electricity-country-container car-detail-container hidden">
+                                    <label>Electricity mix:</label>
+                                    <select class="form-field form-field-option" id="electricity-country-dropdown" name="electricity-country-dropdown">
+                                        <option value="average" selected="selected">Average</option>
+                                        <option value="AR">Argentina</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="AT">Austria</option>
+                                        <option value="BE">Belgium</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="CA">Canada</option>
+                                        <!-- <option value="CL">Chile</option> -->
+                                        <option value="CN">China</option>
+                                        <option value="CZ">Czech Republic</option>
+                                        <option value="DK">Denmark</option>
+                                        <option value="EE">Estonia</option>
+                                        <option value="FI">Finland</option>
+                                        <option value="FR">France</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="GR">Greece</option>
+                                        <option value="IE">Ireland</option>
+                                        <option value="IN">India</option>
+                                        <option value="ID">Indonesia</option>
+                                        <option value="IT">Italy</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="LV">Latvia</option>
+                                        <option value="LT">Lithuania</option>
+                                        <option value="LU">Luxemburg</option>
+                                        <option value="MX">Mexico</option>
+                                        <option value="NL">Netherlands</option>
+                                        <option value="NZ">New Zealand</option>
+                                        <option value="NO">Norway</option>
+                                        <option value="PL">Poland</option>
+                                        <option value="PT">Portugal</option>
+                                        <option value="RU">Russia</option>
+                                        <option value="ZA">South Africa</option>
+                                        <option value="KR">South Korea</option>
+                                        <option value="ES">Spain</option>
+                                        <option value="SE">Sweden</option>
+                                        <option value="CH">Switzerland</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="US">United States</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="btn-field">
+                  <button class="btn btn-custo" id="calculate-btn" type="button">
+                    Calculate
+                  </button>
+                </div>
+              </form>
+            </div>
+            
+            <div class="results-container">
+                <h2>
+                    Your Journey
+                </h2>
+            
+                
+            
+                <div id="next-result" style="display:none"></div>
+            
+                <div id="all-legs">
+                  <div class="leg-container-ref hidden" data-kg-co2="0">
+                    <h3 class="leg-title">x by plane</h3>
+                    <div class="close-window">
+                        ×
+                    </div>
+                    <div class="left-col">
+                        <div class="left-col-inner">
+                            <div class="element-left-col trip-type-result">
+                                <img class="small-icon" src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1610378127/return-trip-white.png?w=1200&amp;ssl=1" alt="return icon" width="36" height="36">
+                                <span class="trip-type">Round-trip</span>
+                            </div>
+            
+                            <div class="element-left-col tm-result">
+                                <img src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1610378080/0_white.png?w=1200&amp;ssl=1" class="img-format" width="41" height="40">
+                                <span class="tm-type">By plane</span>
+                            </div>
+            
+                            <div class="element-left-col pax-in-car hidden">
+                                <img class="small-icon" src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1610381233/passenger-white.png?w=1200&amp;ssl=1" alt="passenger icon" width="256" height="256">
+                                <span class="pax-qty">1</span><span> passengers in the car</span>
+                            </div>
+            
+                        </div>
+                    </div>
+                    <div class="right-col co2-result">
+                        <img class="co2-icon" src="https://i0.wp.com/res.cloudinary.com/joanmm/image/upload/v1610378118/co2-icon-white.png?w=1200&amp;ssl=1" alt="co2 icon" width="72" height="26">
+                        <span style="font-size: 18px;" class="co2-value">0</span> kg CO<sub>2</sub>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+               
+                <div id="equal-sum-line"></div>
+            
+                <div id="total-co2-container">
+                    <div id="total-title">
+                        Your Carbon Footprint
+                    </div>
+                    <div id="total-co2">
+                        <span id="total-co2-int">0</span> <span>kg CO<sub>2</sub>/person</span>
+                    </div>
+            
+                    <div id="arctic-ice">
+                        = <span id="arctic-ice-int">0.00</span> <span>m<sup>2</sup> of arctic ice melted</span>
+                        <div class="tooltip">
+                            ⓘ
+                            <span class="tooltiptext">
+                                According to <a href="https://science.sciencemag.org/content/354/6313/747" target="_blank" rel="noopener">this</a> study published in Science in 2016.
+                            </span>
+                        </div>
+                    </div>
+            
+                    <div style="margin-top: 30px; font-size: 12px; padding: 0px 15px;">
+                        Interested in reducing you carbon footprint as much as possible and offsetting the rest?
+                    </div>
+            
+                    <a href="/en/blog/carbon-offsetting" target="_blank" style="text-decoration: none;" rel="noopener">
+                        <div class="btn btn-custo" id="learn-co2-btn">
+                            Learn more about CO<sub>2</sub>
+                        </div>
+                    </a>
+                    <br>
+                    <div style="font-size: 10px; padding: 0px 30px; margin-top: 50px; width: 100%;">
+                        <div style="display: inline-block; text-align: left; max-width: 100%; float: right;">
+                            <span>
+                                Calculation details are open-sourced on <a href="https://github.com/J0ANMM/carbon-calculator" target="_blank" rel="noopener">GitHub</a>.
+                            </span>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+            
+            <div style="height:200px;">
+            </div>
+            
+            
+            
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+            
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" defer=""></script>
+            
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/J0ANMM/carbon-calculator/all-js/carbon-calculator--travel.js"></script>
+            
+            
+            
+            <p></p>
+            
+                    
+                    
+                </div>
+  
+    </div>
+  </section>
+  
+  
+  
+
+
+  <div id="contact">
+        
+  </div>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<div id="importFooter">
+  
+</div>
+<!-- End Footer -->
+<div class="align-items-center text-white " style="position:fixed;bottom:15px;right:17px;border-radius:6px;max-width:400px;font-size:14px;"role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex  ">
+    <button type="button" id="factopen" onclick="openFact()" style="border-radius:50%;" class="btn btn-success me-6 m-auto shadow box-shadow" > <i class="fa fa-info-circle text-light"></i> </button>
+
+    <div class="toast-body bg-success  shadow box-shadow" style="display:none;border-radius:10px;" id="factclose">
+   <strong>NGO Fact : </strong> <span id="fact"> Hello, world!  </span>
+   <button type="button" onclick="closeFact()" class="btn-close me-6 m-auto bg-danger" data-bs-dismiss="toast" aria-label="Close"></button>
+
+   </div>
+
+    
+  </div>
+</div>
+
+
+
+  <script src="js/imports.js"> </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/carbon-calc.js"> </script>
+
+  <script>
+   
+
+  </script>
+  <!-- BootStrap 5 additional JS Files -->
+  <script src="bootstrap5/aos/aos.js"></script>
+  <script src="bootstrap5/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="bootstrap5/swiper/swiper-bundle.min.js"></script>
+  <script src="bootstrap5/bootstrap/js/bootstrap-main.js"></script>
+
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

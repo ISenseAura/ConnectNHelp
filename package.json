@@ -1,0 +1,17 @@
+{
+  "name": "connectnhelp",
+  "version": "1.0.0",
+  "description": "a gdsc project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Mayur",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2"
+  }
+}

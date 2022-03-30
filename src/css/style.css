@@ -1,0 +1,128 @@
+/* CSS for grid items layout */
+
+.items .box {
+    padding: 30px;
+    box-shadow: 0px 0 5px rgba(1, 41, 112, 0.08);
+    text-align: center;
+    transition: 0.3s;
+    height: 100%;
+  }
+  .items .box img {
+    padding: 30px 50px;
+    transition: 0.5s;
+    transform: scale(1.1);
+  }
+  .items .box h3 {
+    font-size: 24px;
+    color: #012970;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .items .box:hover {
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  }
+  .items .box:hover img {
+    transform: scale(1);
+  }
+ 
+  /* END OF GRID ITEMS LAYOUT */
+
+
+  /* HOMEPAGE LEADING SECTION */
+
+  .lead {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+  }
+  .lead h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    color: #012970;
+  }
+  .lead h2 {
+    color: #444444;
+    margin: 15px 0 0 0;
+    font-size: 26px;
+  }
+  .lead .btn-lead {
+    margin-top: 30px;
+    line-height: 0;
+    padding: 15px 40px;
+    border-radius: 4px;
+    transition: 0.5s;
+    color: #fff;
+    background: #4154f1;
+    box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+  }
+  .lead .btn-lead span {
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .lead .btn-lead i {
+    margin-left: 5px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  .lead .btn-lead:hover i {
+    transform: translateX(5px);
+  }
+  .lead .lead-img {
+    text-align: right;
+  }
+  @media (min-width: 1024px) {
+    .lead {
+      background-attachment: fixed;
+    }
+  }
+  @media (max-width: 991px) {
+    .lead {
+      height: auto;
+      padding: 120px 0 60px 0;
+    }
+    .lead .lead-img {
+      text-align: center;
+      margin-top: 80px;
+    }
+    .lead .lead-img img {
+      width: 80%;
+    }
+  }
+  @media (max-width: 768px) {
+    .lead {
+      text-align: center;
+    }
+    .lead h1 {
+      font-size: 32px;
+    }
+    .lead h2 {
+      font-size: 24px;
+    }
+    .lead .lead-img img {
+      width: 100%;
+    }
+  }
+   
+
+  /* END OF HOMEPAGE LED SECTION */
+
+
+  /* Slider text section*/
+
+
+  
+  .h3 {
+    font-size: 20px;
+    color: #012970;
+    font-weight: 700;
+  }
+
+  
+  .h4 {
+    font-size: 15px;
+    color: rgb(255, 60, 0);
+    font-weight: 700;
+  }
