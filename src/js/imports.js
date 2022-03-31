@@ -497,7 +497,7 @@ ele.innerHTML += `
 const getNGO = async(id) => {
 
   let json = {success:true}
-  const dbRefObject =  firebase.database().ref("events");
+  const dbRefObject =  firebase.database().ref("ngos");
 dbRefObject.on('value', snap => {
 
 	json.data = snap.val()[id];
