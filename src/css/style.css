@@ -81,6 +81,7 @@
   @media (max-width: 991px) {
     .lead {
       height: auto;
+      margin-top:5px;
       padding: 120px 0 60px 0;
     }
     .lead .lead-img {
@@ -91,6 +92,7 @@
       width: 80%;
     }
   }
+
   @media (max-width: 768px) {
     .lead {
       text-align: center;
